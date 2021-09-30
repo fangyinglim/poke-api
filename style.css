@@ -10,4 +10,25 @@
     width: 5em;
     min-height: 10em;
     background: grey;
+    position: relative;
+    border: 1px solid red;
+}
+
+
+.pokePic {
+    border: 1px solid red;
+    position: absolute;
+    top:50%;
+    transform: translate(-50%, -50%);
+    animation: upAndDown 0.8s infinite;
+}
+
+@keyframes upAndDown {
+    0%, 100% {
+        top: 50%
+    }
+
+    50% {
+        top: 52%;
+    }
 }

@@ -18,8 +18,11 @@ getName().then( (data) => {
 }); 
 
 function getPokemon(pokemon) {
-    console.log(pokemon.name);
+    // console.log(pokemon.name);
+    // console.log(pokemon.sprites.front_default);
     document.querySelector('.pokemonName').innerText = pokemon.name; 
+    let imgSrc = pokemon.sprites.front_default;
+    document.querySelector('.pokePic').src = imgSrc;
 }
 
 //created a promise to return input from user//
@@ -33,6 +36,10 @@ function whenUserSubmits() {
     })
 }
 ///////////////////////////////////////////////
+
+document.getElementById('reset-btn').onclick = () => {
+    window.location.reload();
+}
 
 
 
