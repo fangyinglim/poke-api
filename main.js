@@ -1,85 +1,67 @@
 //fetch pokeapi
-const getName = async function pokemonList() {
-    const pokeNameFromUser = await whenUserSubmits(); //returns a promise when user submits 
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokeNameFromUser}`; //using string literal
-    const res = await fetch(url); 
-    // returns a promise when you 'fetch', instead of using .then, 
-    // we use await. this means we (1) fetch the data first, 
-    // then 'await' stalls JS from assigning to const res 
-    // until the promise is resolved, then assigns it to const.
-    const pokemon = await res.json(); //returns another promise when resolved
-    console.log(pokemon);
-    // getPokemon(pokemon);
-    return pokemon; //doesnt return data, returns another promise 
-}
-
-getName().then( (data) => {
-    getPokemon(data);
-}); 
+document.querySelector('#submit-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+    const nameOfPokeSubmittedByUser = document.querySelector('#pokemonNameFromUser').value;
+    const url = `https://pokeapi.co/api/v2/pokemon/${nameOfPokeSubmittedByUser}`;
+    
+    (async function getName() {
+        const res = await fetch(url); 
+        // returns a promise when you 'fetch', instead of using .then, 
+        // we use await. this means we (1) fetch the data first, 
+        // then 'await' stalls JS from assigning to const res 
+        // until the promise is resolved, then assigns it to const.
+        const pokemon = await res.json(); //returns another promise when resolved
+        console.log(pokemon);
+        return pokemon; //doesnt return data, returns another promise 
+    })()
+    .then( (data) => {
+        // console.log(data.name);
+        getPokemon(data);
+        })
+        .catch( (err) => {
+            console.log(err)
+            document.querySelector('#error-msg').classList.add('appear');
+            document.querySelector('#error-msg').innerText = 'Please input a valid pokemon name';
+            setTimeout(() => {
+                document.querySelector('#error-msg').classList.remove('appear');
+                document.querySelector('#error-msg').innerText = '';
+            }, 3500);
+         })   
+    
+})
 
 function getPokemon(pokemon) {
-    // console.log(pokemon.name);
-    // console.log(pokemon.sprites.front_default);
+    //shows pokemon name
     document.querySelector('.pokemonName').innerText = pokemon.name; 
+    //shows picture of pokemon
     let imgSrc = pokemon.sprites.front_default;
     document.querySelector('.pokePic').src = imgSrc;
-}
-
-//created a promise to return input from user//
-function whenUserSubmits() {
-    return new Promise ((resolve, reject) => {
-        document.getElementById('submit-btn').onclick = (event) => {
-            event.preventDefault();
-            const nameTemp2 = document.getElementById('pokemonNameFromUser').value;
-            resolve(nameTemp2);
-        }
-    })
-}
-///////////////////////////////////////////////
-
-document.getElementById('reset-btn').onclick = () => {
-    window.location.reload();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let nameofPokemonSubmittedByUser = '';
-//     document.getElementById('submit-btn').onclick = function getPokeNameFromUser(event) {
-//     return new Promise ( (resolve, reject) => {
-//         event.preventDefault(); //stop form from submitting
-//         nameofPokemonSubmittedByUser = document.getElementById('pokemonName').value;
-//         resolve(nameofPokemonSubmittedByUser);
-// })}
-//retrieve user input into 'nameofPokemonSubmittedByUser' variable
-// let nameofPokemonSubmittedByUser = '';
-// document.getElementById('submit-btn').onclick = function getName(event) {
-//     return new Promise ((resolve, reject)=> {
-//         event.preventDefault(); //stop form from submitting
-//         nameofPokemonSubmittedByUser = document.getElementById('pokemonName').value;
-//         resolve(nameofPokemonSubmittedByUser);
-//     })
-//     .then((message) => (console.log(message))
+    //shows pokemon type
+    if ( document.querySelector('.pokeType').hasChildNodes()) {
+            console.log(document.querySelector('.pokeType').firstChild);
+            while (document.querySelector('.pokeType').firstChild) {
+                document.querySelector('.pokeType').firstChild.remove()}
+                // }
+                // } 
+                
+            }
+    console.log(pokemon.types.length);
+    for (let i=0; i < pokemon.types.length; i++) {
+              
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('type');
+        newDiv.innerHTML = pokemon['types'][i]['type']['name'];
+        document.querySelector('.pokeType').appendChild(newDiv);
+        console.log(pokemon['types'][i]['type']['name'])
+        
+    };
     
-//     )}
+}
+
+
+
+
+
+
+
+
