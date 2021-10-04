@@ -9,21 +9,26 @@
 </head>
 <body>
     
-
+<div class="form-container">
     <form id="form">
-    <label for="pokemonNameFromUser">Pokemon:</label>
-    <input type="text" name="pokemon-name" placeholder="" id="pokemonNameFromUser">
-    <input type="submit" value="Submit" id="submit-btn">
-    <input type="reset" value="Clear" id="reset-btn">
+        <label for="pokemonNameFromUser">Pokemon:</label>
+        <input type="text" name="pokemon-name" placeholder="" id="pokemonNameFromUser">
+        <input type="submit" value="Submit" id="submit-btn">
+        <input type="reset" value="Clear" id="reset-btn">
     </form>
-   
     <div id="error-msg"></div>
+
+    <div id="matchList"></div>
+</div>
+
     
     <div class="container">
-        <div class="pokemonName">font test</div>
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="picture of pokemon" class="pokePic">
+        <div class="pokemonName"></div>
         <div class="pokeType"></div>
+        <img src="images/pokeball.png" alt="picture of pokemon" class="pokePic">
     </div> 
+
+    <div class="weakness"></div>
 
     <script src="main.js"></script>
 </body>

@@ -1,35 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-.container {
-    font-size: 1.5em;
-    text-align: center;
-    width: 5em;
-    min-height: 10em;
-    background: grey;
-    position: relative;
-    border: 1px solid red;
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
+.container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    font-size: 1.5em;
+    text-align: center;
+    width: 10em;
+    min-height: 12em;
+    background: rgb(179, 165, 165);
+    position: relative;
+    /* border: 1px solid rgb(54, 20, 204); */
+    border-radius: 1.5em;
+    box-shadow: 0 0 5px 0px black;
+}
 
 .pokePic {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    height: 7em;
+    width: 7em;
     position: absolute;
-    top:50%;
-    transform: translate(-50%, -50%);
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
     animation: upAndDown 0.8s infinite;
 }
 
 @keyframes upAndDown {
     0%, 100% {
-        top: 50%
+        top: 20%
     }
-
+    
     50% {
-        top: 52%;
+        top: 18%;
     }
 }
 
@@ -43,21 +57,157 @@
     color: rgb(206, 39, 39);
 }
 
+.pokemonName {
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+}
+
 .pokeType {
     display: flex;
-    border: 1px solid red;
-    height: 100%;
-    width: 100%;
-    justify-content: space-around;
+    /* border: 1px solid red; */
+    height: 2em;
+    min-width: 1em;
+    justify-content: space-evenly;
     align-items: center;
-
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
 .type {
     font-size: 0.5em;
-    border: 1px solid red;
     display: inline-block;
-    padding: 0.1em 0.7em;
-    border-radius: 50%;
+    padding: 0.2em 0.7em;
+    border-radius: 2em;
+    margin: 0.5em;
+}
+
+/*change style according to pokemon type*/
+.fire {
+    background: rgb(240, 128, 49);
+    border: 1px solid rgb(158, 84, 32);
+    color: white;
+}
+.normal	{
+    background: rgb(168, 168, 120);
+    border: 1px solid rgb(109, 109, 78);
+    color: white;
+}
+.fighting {
+    background: rgb(192, 48, 40);
+    border: 1px solid rgb(127, 32, 28);
+    color: white;
+}
+.water {
+    background:rgb(104, 144, 240);
+    border: 1px solid rgb(69, 95, 157);    
+    color: white;
+}
+.flying	{
+    background: rgb(168, 144, 240);
+    border: 1px solid rgb(109, 94, 156);
+    color: white;
+}
+.grass {    
+    background: rgb(120, 200, 80);
+    border: 1px solid rgb(80, 132, 54);
+    color: white;
+}
+.poison	{
+    background: rgb(160, 64, 160);
+    border: 1px solid rgb(105, 43, 106);
+    color: white;
+}
+.electric {
+    background: rgb(249, 209, 49);
+    border: 1px solid rgb(162, 136, 32);
+    color: white;
+}
+.ground	{
+    background: rgb(224, 192, 104);
+    border: 1px solid rgb(156, 136, 81);
+    color: white;
+}
+.psychic {
+    background: rgb(245, 89, 137);
+    border: 1px solid rgb(162, 58, 89);
+    color: white;
+}
+.rock {
+    background: rgb(184, 160, 56);
+    border: 1px solid rgb(121, 105, 37);
+    color: white;
+}
+.ice {
+    background: rgb(152, 217, 216);
+    border: 1px solid rgb(100, 142, 141);
+    color: white;
+}
+.bug {
+    background: rgb(169, 184, 31);
+    border: 1px solid rgb(111, 122, 22);
+    color: white;
+}
+.dragon {
+    background: rgb(113, 57, 248);
+    border: 1px solid rgb(73, 36, 161);
+    color: white;
+}
+.ghost {
+    background: rgb(112, 89, 152);
+    border: 1px solid rgb(73, 57, 99);
+    color: white;
+}
+.dark {
+    background: rgb(112, 88, 72);
+    border: 1px solid rgb(75, 58, 48);
+    color: white;
+}
+.steel {
+    background: rgb(184, 184, 208);
+    border: 1px solid rgb(120, 120, 135);
+    color: white;
+}
+.fairy {
+    background: rgb(238, 153, 172);
+    border: 1px solid rgb(155, 101, 112);
+    color: white;
+}
+
+.form-container {
+    position: absolute;
+    /* border: 1px solid rgb(182, 20, 53); */
+    top: 2%;
+    left: 2%;
+}
+
+input {
+    height: 2em;
+}
+ 
+input[type="text"] {
+    width: 12em;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 2px solid rgb(18, 177, 3);
+}
+
+.searchStyle {
+    display: block;
+    height:1.5em;
+    width: 10em;
+    border: 1px solid rgba(247, 247, 247, 0.555);
+    color: rgb(245, 230, 230);
+    background: rgba(0, 0, 0, 0.678);
+    position: relative;
+    left: 4.7em;
+    padding-left: 0.2em;
 }
