@@ -211,3 +211,12 @@ input[type="text"]:focus {
     left: 4.7em;
     padding-left: 0.2em;
 }
+
+.searchStyle:hover {
+    border: 2px solid yellow;
+}
+
+
+.highlight {
+    border: 2px solid yellow;
+}

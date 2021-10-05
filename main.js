@@ -108,7 +108,7 @@ function outputResults(results) {
     // })
     
     let matchList = document.querySelector('#matchList')
-    console.log(matchList.firstChild);
+    // console.log(matchList.firstChild);
     if ( matchList.hasChildNodes()) {
         while (matchList.firstChild) {
             matchList.firstChild.remove(); 
@@ -118,11 +118,44 @@ function outputResults(results) {
 
     console.log(resultsNameOnly);
 
+    document.createElement('div')
+
     for (let i=0; i<resultsNameOnly.length; i++) {
         let newDiv2 = document.createElement('div');
-        newDiv2.classList.add('searchStyle')
+        newDiv2.classList.add('searchStyle', 'selection')
         newDiv2.innerHTML = resultsNameOnly[i];
         document.querySelector('#matchList').appendChild(newDiv2);
     }
+
+    //when pokemon name from autopopulated list is clicked, value gets submitted
+    let list = document.querySelectorAll('.selection');
+    list.forEach( each => each.addEventListener('click', (each) => {
+        document.querySelector('#pokemonNameFromUser').value = each.target.innerText
+        document.querySelector('#matchList').innerHTML = '';
+        document.querySelector("input[type='submit']").click();
+    }))
+
+
+    //when arrow key is used to select WIP
+    // console.log(matchList.querySelectorAll('.selection')[0]);
+    matchList.querySelectorAll('.selection').forEach ( (each) => {
+        console.log(each)
+
+    })
+
+    let count = -1;
+    document.querySelector('#pokemonNameFromUser').addEventListener('keydown', (event) => {
+        if (event.which === 40 || event.keyCode === 40) {
+            count++; 
+        }
+        while (count > resultsNameOnly.length) {
+            count = 0;
+        }
+        
+        console.log(count);
+    })
+    
+    matchList.querySelectorAll('.selection')[count].classList.add('highlight');
+
 
 }
