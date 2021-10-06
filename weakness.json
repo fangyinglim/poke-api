@@ -1,0 +1,25 @@
+{
+"normal": [
+    {
+    "weakness": "fighting" 
+        },
+    {  
+    "strength": "ghost"
+        }    
+],
+
+"fire": [
+    {
+        "weakness": ["water", "ground", "rock"] 
+            },
+        {  
+        "strength": ["grass", "ice", "bug", "steel" ]
+            }    
+]
+
+}
+
+
+
+
+

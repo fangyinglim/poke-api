@@ -97,16 +97,14 @@ async function searchPokemon(inputValue) {
     if (inputValue.target.value.length === 0) {
         results = [];
     }
+    // list of pokemon names is returned as an arg to function outputResults, 
+    // where divs are created to show user suggested pokemon names
     outputResults(results);
 
 }
 
 function outputResults(results) {
-    // console.log(results);
-    // results.forEach ( each => {
-    //     console.log(each.name);
-    // })
-    
+     
     let matchList = document.querySelector('#matchList')
     // console.log(matchList.firstChild);
     if ( matchList.hasChildNodes()) {
@@ -135,27 +133,18 @@ function outputResults(results) {
         document.querySelector("input[type='submit']").click();
     }))
 
-
-    //when arrow key is used to select WIP
-    // console.log(matchList.querySelectorAll('.selection')[0]);
-    matchList.querySelectorAll('.selection').forEach ( (each) => {
-        console.log(each)
-
-    })
-
-    let count = -1;
-    document.querySelector('#pokemonNameFromUser').addEventListener('keydown', (event) => {
-        if (event.which === 40 || event.keyCode === 40) {
-            count++; 
-        }
-        while (count > resultsNameOnly.length) {
-            count = 0;
-        }
-        
-        console.log(count);
-    })
     
-    matchList.querySelectorAll('.selection')[count].classList.add('highlight');
-
-
 }
+
+
+// console.log(document);
+// let count = -1;
+// document.getElementById('pokemonNameFromUser').addEventListener('keypressed', (event) => {
+//     console.log(event.key)
+//     if (event.key === 'ArrowDown') {
+//         count++;
+//     }
+//     console.log(count)
+//     testing(count);
+// })
+

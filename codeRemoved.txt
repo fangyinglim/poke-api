@@ -59,3 +59,23 @@
         // console.log(children);
         // for (let eachChild of children) {
             //     console.log(eachChild);
+
+
+    //when arrow key is used to select WIP//
+    // let count = -1;
+    // document.querySelector('#pokemonNameFromUser').addEventListener('keyup', (event) => {
+    //     if (count === resultsNameOnly.length -1) {
+    //         count = 0;
+    //     }
+    //     else if (event.keyCode === 40) {
+    //         count++; 
+    //     }
+    //     return returnCount(count)
+    // })
+    
+    // function returnCount(count) {
+    //     console.log(count);
+    //     console.log(document.getElementById('matchList').childNodes[count]);
+    //     document.getElementById('matchList').childNodes[count].className += ' highlight' ;
+        
+    // }
