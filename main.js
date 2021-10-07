@@ -67,11 +67,83 @@ function getPokemon(pokemon) {
         }
     }  
 
-
+    //display strength and weakness of selected pokemon
+    async function getWeakness() {
+        const url3 = await fetch('weakness.json');
+        const res3 = url3.json();
+        return res3
+    }
     
+    const weakness = document.querySelector('.weakness');
+    const strength = document.querySelector('.strength');
+    //showing weaknesses
+    getWeakness().then( (data) => {
+        if ( weakness.hasChildNodes()) {
+            while (weakness.firstChild) {
+                weakness.firstChild.remove()
+            }
+        }
+        let para = document.createElement('p');
+        para.innerText = 'weakness';
+        weakness.appendChild(para);
+
+        let a = [];
+        for (let i=0; i < pokemon.types.length; i++) {
+        let namesOfWeaknessForEachType = data[`${pokeTypes[i].innerText}`][0].weakness;
+        // console.log(namesOfWeaknessForEachType); 
+        a = a.concat(namesOfWeaknessForEachType);
+        // console.log(a)
+        aWithNoDupes = a.filter( (each, pos) => { 
+            return a.indexOf(each) == pos }) 
+        }
+        for (let i=0; i < aWithNoDupes.length; i++) {
+            let newDiv3 = document.createElement('div')
+            newDiv3.classList.add('type', `${aWithNoDupes[i]}`)
+            newDiv3.innerText = aWithNoDupes[i]
+            // console.log(newDiv3)
+            weakness.appendChild(newDiv3);
+        }
+    })
+    //showing strengths
+    getWeakness().then( (data) => {
+        if ( strength.hasChildNodes()) {
+            while (strength.firstChild) {
+                strength.firstChild.remove()
+            }
+        }
+        let para = document.createElement('p');
+        para.innerText = 'strength';
+        strength.appendChild(para);
+        
+        let b = [];
+        for (let i=0; i < pokemon.types.length; i++) {
+        let namesOfStrengthForEachType = data[`${pokeTypes[i].innerText}`][1].strength;
+        // console.log(namesOfStrengthForEachType); 
+        b = b.concat(namesOfStrengthForEachType);
+        // console.log(b)
+        bWithNoDupes = b.filter( (each, pos) => { 
+            return b.indexOf(each) == pos }) 
+        }
+        for (let i=0; i < bWithNoDupes.length; i++) {
+            let newDiv3 = document.createElement('div')
+            newDiv3.classList.add('type', `${bWithNoDupes[i]}`)
+            newDiv3.innerText = bWithNoDupes[i]
+            // console.log(newDiv3)
+            strength.appendChild(newDiv3);
+        }
+    })
+
 }
 
-//autocomplete (still WIP)//
+
+
+
+
+
+
+
+
+//autocomplete//
 
 //clears search when reset button is clicked
 document.querySelector('#reset-btn').addEventListener('click', () => {
@@ -114,7 +186,7 @@ function outputResults(results) {
     
     resultsNameOnly = results.map( each => {return each.name})
 
-    console.log(resultsNameOnly);
+    // console.log(resultsNameOnly);
 
     document.createElement('div')
 
@@ -136,15 +208,4 @@ function outputResults(results) {
     
 }
 
-
-// console.log(document);
-// let count = -1;
-// document.getElementById('pokemonNameFromUser').addEventListener('keypressed', (event) => {
-//     console.log(event.key)
-//     if (event.key === 'ArrowDown') {
-//         count++;
-//     }
-//     console.log(count)
-//     testing(count);
-// })
 

@@ -79,3 +79,23 @@
     //     document.getElementById('matchList').childNodes[count].className += ' highlight' ;
         
     // }
+
+
+// console.log(document);
+// let count = -1;
+// document.getElementById('pokemonNameFromUser').addEventListener('keypressed', (event) => {
+//     console.log(event.key)
+//     if (event.key === 'ArrowDown') {
+//         count++;
+//     }
+//     console.log(count)
+//     testing(count);
+// })
+
+            // for (let j=0; j < namesOfWeaknessForEachType.length; j++) {
+            //     // console.log(data[`${pokeTypes[i].innerText}`][0].weakness[j] ); 
+            //     let newDiv3 = document.createElement('div')
+            //     newDiv3.classList.add('type', `${namesOfWeaknessForEachType[j]}`)
+            //     newDiv3.innerText = namesOfWeaknessForEachType[j]
+            //     console.log(newDiv3)
+            // }
