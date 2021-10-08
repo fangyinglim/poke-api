@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-* {
+*, ::before, ::after{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -10,24 +10,98 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.container {
+.pokeDex {
+    height: 30em;
+    width: 40em;
+    background: rgb(244, 0, 101);
     position: absolute;
     left: 40%;
     transform: translateX(-50%);
     top: 100px;
+    z-index: -1;
+    border-radius: 5%;
+    border: 5px solid black;
+    box-shadow:  0 10px 10px -10px rgb(0, 0, 0);
+}
+
+.pokeDex::after {
+    content: '';
+    height: 2.05em;
+    width: 10em;
+    border-right: 5px solid black;
+    border-top: 5px solid black;
+    transform: skewX(15deg);
+    background: rgb(244, 0, 101);
+    position: absolute;
+    top: 13%;
+    left: 50.5%;
+    z-index: 0;
+}
+
+.pokeDex::before {
+    content: '';
+    height: 10em;
+    width: 19.5em;
+    border-bottom: 5px solid black;
+    background: white;
+    position: absolute;
+    right: -0.8%;
+    top: -14%;
+}
+
+.container {
+    position: absolute;
+    left: 32%;
+    transform: translate(-50%, -50%);
+    top: 60%;
     font-size: 1.5em;
     text-align: center;
     width: 10em;
     min-height: 12em;
-    background: rgb(179, 165, 165);
-    /* border: 1px solid rgb(54, 20, 204); */
-    border-radius: 1.5em;
-    box-shadow: 0 0 5px 0px black;
+    background: rgb(152, 203, 152);
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-bottom: 4px solid black;
+    border-bottom-left-radius: 10%;
+    border-top-left-radius: 10%;
+    z-index: -1;
+}
+
+.divider {
+    height: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left:51%;
+    z-index: 1;
+    border-left: 5px solid black;
+}
+
+.borderone {
+    height: 2em;
+    width: 11em;
+    background: transparent;
+    border-top: 5px solid black;
+    position: absolute;
+    top: 13%;
+    left: 26%;
+}
+
+.bordertwo {
+    height: 2em;
+    width: 10em;
+    background: transparent;
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+    position: absolute;
+    top: 13%;
+    left: 0%;
+    transform: skew(-20deg);
 }
 
 
+
 .pokePic {
-    /* border: 1px solid red; */
     height: 7em;
     width: 7em;
     position: absolute;
@@ -58,7 +132,7 @@ body {
 }
 
 .pokemonName {
-    /* border: 1px solid red; */
+    text-transform: capitalize;
     position: absolute;
     top: 10%;
     left: 50%;
@@ -185,6 +259,7 @@ body {
     /* border: 1px solid rgb(182, 20, 53); */
     top: 2%;
     left: 2%;
+    z-index: -1;
 }
 
 input {
@@ -223,13 +298,18 @@ input[type="text"]:focus {
 }
 
 .strength-weakness {
+    text-transform: capitalize;
     width: 10em;
     min-height: 12em;
-    background: rgb(179, 165, 165);
-    border-radius: 1.5em;
-    box-shadow: 0 5px 5px -5px black;
+    background: rgb(124, 117, 117);
+    border-bottom-right-radius: 10%;
+    border-top-right-radius: 10%;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 4px solid black;
     position: absolute;
     left: 100%;
+    top: -1%;
     display: flex;
     flex-direction: column;
 }
@@ -242,5 +322,265 @@ input[type="text"]:focus {
 .weakness {
     position: relative;
     top: 2em;
+}
+
+.block1 {
+    height: 100vh;
+    width: 50%;
+    background: rgb(221, 9, 9);
+    z-index: 10;
+
+}
+
+.block2 {
+    height: 100vh;
+    width: 50%;
+    background: green;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.pokeball-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.pokeball-top {
+    width: 200px;
+    height: 100px;
+    background:red;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border: 8px solid black;
+    position: relative;
+    top: 1px;
+}
+
+.pokeball-btm {
+    width: 200px;
+    height: 100px;
+    background:white;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border: 8px solid black;
+    position: relative;
+
+}
+
+.pokeball-inner-top {
+    width: 60px;
+    height: 30px;
+    background: white;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border: 6px solid black;
+    border-bottom: 0;
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pokeball-inner-btm {
+    width: 60px;
+    height: 30px;
+    background: white;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border: 6px solid black;
+    border-top: 0;
+    position: absolute;
+    top: -11%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pokeball-inner-top-btn {
+    width: 30px;
+    height: 15px;
+    background: #ccc;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.pokeball-inner-btm-btn {
+    width: 30px;
+    height: 15px;
+    background: #ccc;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.circle {
+    z-index: -1;
+    background: rgb(244, 2, 6);
+    border: 2.5px solid black;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 7%;
+    border-radius: 50%;
+}
+
+.circle.one {
+    background: rgb(244, 2, 6);
+    left: 30%;
+}
+
+.circle.two {
+    background: rgb(250, 203, 101);
+    left: 35%;
+}
+
+.circle.three {
+    background: rgb(64, 202, 100);
+    left: 40%;
+}
+
+.smallcircle {
+    height: 5px;
+    width: 5px;
+    z-index: -1;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    border-radius: 50%;
+}
+
+.smallcircle.one {
+    background: rgb(248, 150, 199);
+}
+
+.smallcircle.two {
+    background: rgb(254, 253, 200);
+}
+
+.smallcircle.three {
+    background: rgb(146, 252, 8);
+}
+
+.bigcircle {
+    z-index: -1;
+    background: white;
+    border: 3px solid black;
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    top: 1%;
+    left: 5%;
+    border-radius: 50%;
+}
+
+.bigcircle-inner {
+    z-index: -1;
+    background: rgb(51, 152, 203);
+    border: 2px solid black;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: -1%;
+    left: -1%;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.inner-reflection {
+    z-index: -1;
+    background: rgb(133, 190, 254);
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 10%;
+    left: 20%;
+    border-radius: 50%;
+}
+
+.square {
+    background:white;
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    border: 2px solid black;
+    border-radius: 15%;
+}
+
+.square.two {
+    top: 60%;
+}
+
+.rec {
+    background: rgb(244, 2, 6);
+    height: 0.5em;
+    width: 4em;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 15%;
+    left: 1%;
+    top: 35%;
+}
+
+.rec.two {
+    background: rgb(133, 189, 253);
+    top: 40%;
+}
+
+.tinydot {
+    background: black;
+    height: 0.15em;
+    width: 0.15em;
+    position: absolute;
+    border-radius: 15%;
+    left: 70%;
+    bottom: -10%;
+}
+
+.tinydot.two {
+    left: 75%;
+}
+
+.tinydot.three {
+    left: 80%;
+}
+
+.reset-circle {
+    background: rgb(244, 2, 6);
+    height: 0.7em;
+    width: 0.7em;
+    position: absolute;
+    border-radius: 15%;
+    left: 60%;
+    bottom: -11%;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+.reset-circle-small {
+    background: rgb(248, 146, 194);
+    height: 0.15em;
+    width: 0.15em;
+    position: absolute;
+    border-radius: 15%;
+    left: 15%;
+    top: 15%;
+    border-radius: 50%;
 }
 
