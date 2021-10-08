@@ -208,10 +208,6 @@ function outputResults(results) {
     
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 15b899e0d0be1988c25a8f7f56103c6b12da82ad
 const tl = gsap.timeline();
 tl
     .from('.pokeball-container', { duration: 1.5, y: '-30%', ease:'bounce'})
@@ -223,7 +219,3 @@ tl
     .to('.block1', { duration: 1, x: '-100%'}, '<')
     .to('.block2', { duration: 1, x: '100%'}, '<')
     .to('.form-container', { zIndex: 1} )
-<<<<<<< HEAD
-=======
-
->>>>>>> 15b899e0d0be1988c25a8f7f56103c6b12da82ad
