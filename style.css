@@ -10,6 +10,16 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+img[alt="bg img"] {
+    background-size: cover ;
+    background-position: center;
+    /* height: 100%; */
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    
+}
+
 .pokeDex {
     height: 30em;
     width: 40em;
@@ -43,10 +53,11 @@ body {
     height: 10em;
     width: 19.5em;
     border-bottom: 5px solid black;
-    background: white;
+    background: rgb(59, 173, 226);
     position: absolute;
     right: -0.8%;
     top: -14%;
+    z-index: 0;
 }
 
 .container {
@@ -327,7 +338,7 @@ input[type="text"]:focus {
 .block1 {
     height: 100vh;
     width: 50%;
-    background: rgb(221, 9, 9);
+    background: rgb(221, 9, 9) ;
     z-index: 10;
 
 }
@@ -335,7 +346,7 @@ input[type="text"]:focus {
 .block2 {
     height: 100vh;
     width: 50%;
-    background: green;
+    background: white ;
     position: absolute;
     right: 0;
     top: 0;
