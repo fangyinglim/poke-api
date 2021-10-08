@@ -208,4 +208,14 @@ function outputResults(results) {
     
 }
 
-
+const tl = gsap.timeline();
+tl
+    .from('.pokeball-container', { duration: 1.5, y: '-30%', ease:'bounce'})
+    .to('.pokeball-container', { duration: 0.4, rotate: '20deg'})
+    .to('.pokeball-container', { duration: 0.4, rotate: '-20deg'})
+    .to('.pokeball-container', { duration: 0.5, rotate: '90deg'})
+    .to('.pokeball-top', { duration: 0.1, opacity:'0' })
+    .to('.pokeball-btm', { duration: 0.1, opacity:'0'}, '<')
+    .to('.block1', { duration: 1, x: '-100%'}, '<')
+    .to('.block2', { duration: 1, x: '100%'}, '<')
+    .to('.form-container', { zIndex: 1} )
